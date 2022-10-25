@@ -301,7 +301,7 @@ func (this *Applier) CreateChangelogTable() error {
 			value varchar(4096) charset ascii not null,
 			primary key(id),
 			unique key hint_uidx(hint)
-		) auto_increment=256 comment='%s'`,
+		) engine = innodb auto_increment=256 comment='%s'`,
 		sql.EscapeName(this.migrationContext.DatabaseName),
 		sql.EscapeName(this.migrationContext.GetChangelogTableName()),
 		GhostChangelogTableComment,
